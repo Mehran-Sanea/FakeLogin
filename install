@@ -1,0 +1,17 @@
+#!/bin/bash
+#Values.
+red='\e[1;31m'
+green='\e[0;32m'
+white='\e[1;37m'
+
+# Check permission.
+clear()
+[[ `id -u` -eq 0 ]] > /dev/null 2>&1 || { echo  $red "You must be root to run the script"; exit 1; }
+
+# installation
+cp FakeLogin.py /usr/bin/FakeLogin
+chmod +x /usr/bin/FakeLogin
+echo "FakeLogin" >> /etc/bash.bashrc
+echo -e $green "Installation completed. [%100]"
+echo -e $red "[*]  " $green "Please close current Terminal and open new Terminal." $red "  [*]" $white
+
