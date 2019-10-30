@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Values.
+red='\e[1;31m'
+
+# Uninstallation
+clear()
+[[ `id -u` -eq 0 ]] > /dev/null 2>&1 || { echo  $red "You must be root to unistall the script"; exit 1; }
+rm /usr/bin/FakeLogin
+sed -i 's/FakeLogin//g' /etc/bash.bashrc
+echo  -e $red "Uninstall Successful."
+rm /usr/bin/FakeLoginUninstall

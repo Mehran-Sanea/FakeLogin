@@ -1,5 +1,6 @@
 #!/bin/bash
-#Values.
+
+# Values.
 red='\e[1;31m'
 green='\e[0;32m'
 white='\e[1;37m'
@@ -11,6 +12,8 @@ clear()
 # installation
 cp FakeLogin.py /usr/bin/FakeLogin
 chmod +x /usr/bin/FakeLogin
+cp uninstall /usr/bin/FakeLoginUninstall
+chmod +x /usr/bin/FakeLoginUninstall
 echo "FakeLogin" >> /etc/bash.bashrc
 echo -e $green "Installation completed. [%100]"
 echo -e $red "[*]  " $green "Please close current Terminal and open new Terminal." $red "  [*]" $white

@@ -58,8 +58,7 @@ with open("temp.mts", "r") as file:
     real_user_name = file.read()
 
 user_name = input(f"{red}Please enter your name for login:{green} ")
-
-if user_name in real_user_name:
+if user_name in real_user_name and len(user_name) == (len(real_user_name))-1:
     print(f"{green}[*]\tCorrect!")
     sleep(1)
     cls()
@@ -99,12 +98,13 @@ sleep(2)
 cls()
 system("rm temp.mts")
 
-print("""
+print(f"""
 \ \      / /__| | ___ ___  _ __ ___   ___   _    \ \ 
  \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ (_)____| |
   \ V  V /  __/ | (_| (_) | | | | | |  __/  |_____| |
    \_/\_/ \___|_|\___\___/|_| |_| |_|\___| (_)    | |
                                                  /_/ 
-
+{red}[*] For uninstall type: {green}FakeLoginUninstall
 """)
+
 
