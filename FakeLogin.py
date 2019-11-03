@@ -3,6 +3,7 @@
 from sys import stdout, argv, exit
 from os import system
 from time import sleep
+from hashlib import sha256
 
 """
 This funny script make your terminal cool when you start it up.
@@ -29,6 +30,11 @@ def slowPrint(text, t=0.2):
 def cls():
     system("clear")
 
+# make Hashes for crack ShowOff.
+def hash(value):
+    hashed = sha256(str(value).encode("utf-8")).hexdigest()
+    return hashed
+
 # Set values.
 blue = "\033[94m"
 red = "\033[91m"
@@ -37,10 +43,6 @@ blink = "\033[5m"
 end_blink = "\033[25m"
 loading_bar = "\033[46m"
 black = "\033[40m"
-
-one = "hfyr839w nvhfji99 09iijhre dhu7%%4g jg__g739"
-two = "00000000 hfyr839w nvhfji99 09iijhre 00006664"
-three = "09iijhre dhu7%%4s nvhfji99 09iijhre 98765322"
 
 # Start
 if len(argv) >= 2:
@@ -77,20 +79,11 @@ else:
 
 print(f"{red}{blink}Cracking your password:{end_blink}")
 
-for i in range(10):
-    print(one)
-    print(two)
-    print(three)
-    sleep(0.5)
-    cls()
-    if i % 2 == 0:
-        one = one.replace("h", "8@")
-        two = two.replace("0", "T")
-        three = three.replace("i", "n0#")
-    else:
-        one = one.replace("8", "hf")
-        two = two.replace("T", "50")
-        three = three.replace("#", "i!")
+for i in range(7):
+    print(hash(i))
+    print(hash(i+233))
+    print(hash(i**4))
+    sleep(0.2)
 
 print(f"{blue}Password:")
 slowPrint(8*"*", 0.1)
